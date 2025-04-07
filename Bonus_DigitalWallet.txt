@@ -1,0 +1,100 @@
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ make SGX_MODE=SIM
+make[1]: Entering directory '/home/amena/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet'
+GEN  =>  App/Enclave_u.h
+cc1: warning: Include: No such file or directory [-Wmissing-include-dirs]
+CC   <=  App/Enclave_u.c
+cc1plus: warning: Include: No such file or directory [-Wmissing-include-dirs]
+CXX  <=  App/App.cpp
+LINK =>  bonus_digital_wallet
+GEN  =>  Enclave/Enclave_t.h
+cc1: warning: Include: No such file or directory [-Wmissing-include-dirs]
+CC   <=  Enclave/Enclave_t.c
+cc1plus: warning: Include: No such file or directory [-Wmissing-include-dirs]
+Enclave/Enclave.cpp:5:8: error: redefinition of ‘struct transaction_entry’
+    5 | struct transaction_entry{
+      |        ^~~~~~~~~~~~~~~~~
+In file included from Enclave/Enclave.cpp:1:
+Enclave/Enclave_t.h:20:16: note: previous definition of ‘struct transaction_entry’
+   20 | typedef struct transaction_entry {
+      |                ^~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:251: Enclave/Enclave.o] Error 1
+make[1]: Leaving directory '/home/amena/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet'
+make: *** [Makefile:180: all] Error 2
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ make SGX_MODE=SIM
+make[1]: Entering directory '/home/amena/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet'
+cc1plus: warning: Include: No such file or directory [-Wmissing-include-dirs]
+CXX  <=  Enclave/Enclave.cpp
+LINK =>  enclave.so
+<EnclaveConfiguration>
+    <ProdID>0</ProdID>
+    <ISVSVN>0</ISVSVN>
+    <StackMaxSize>0x40000</StackMaxSize>
+    <HeapMaxSize>0x100000</HeapMaxSize>
+    <TCSNum>10</TCSNum>
+    <TCSPolicy>1</TCSPolicy>
+    <!-- Recommend changing 'DisableDebug' to 1 to make the enclave undebuggable for enclave release -->
+    <DisableDebug>0</DisableDebug>
+    <MiscSelect>0</MiscSelect>
+    <MiscMask>0xFFFFFFFF</MiscMask>
+</EnclaveConfiguration>
+tcs_num 10, tcs_max_num 10, tcs_min_pool 1
+INFO: Enclave configuration 'MiscSelect' and 'MiscSelectMask' will prevent enclave from using dynamic features. To use the dynamic features on SGX2 platform, suggest to set MiscMask[0]=0 and MiscSelect[0]=1.
+The required memory is 4083712B.
+The required memory is 0x3e5000, 3988 KB.
+handle_compatible_metadata: Overwrite with metadata version 0x100000005
+Succeed.
+SIGN =>  enclave.signed.so
+The project has been built in debug simulation mode.
+make[1]: Leaving directory '/home/amena/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet'
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ /.app
+bash: /.app: No such file or directory
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ cd App
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet/App$ /.app
+bash: /.app: No such file or directory
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet/App$ /.appcd ..
+bash: /.appcd: No such file or directory
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet/App$ cd ..
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ ./app
+bash: ./app: No such file or directory
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ cd App
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet/App$ ./app
+bash: ./app: No such file or directory
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet/App$ ls
+App.cpp  App.o  Enclave_u.c  Enclave_u.h  Enclave_u.o
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet/App$ ls
+App.cpp  App.o  Enclave_u.c  Enclave_u.h  Enclave_u.o
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet/App$ cd ..
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ ls
+App                   Bonus_DigitalWallet.txt  enclave.signed.so  Makefile
+bonus_digital_wallet  Enclave                  enclave.so
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ ./bonus_digital_wallet
+Balance: 1300.00
+DEPOSIT: 500.00
+PAY: 200.00
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ make SGX_MODE=SIM
+make[1]: Entering directory '/home/amena/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet'
+cc1plus: warning: Include: No such file or directory [-Wmissing-include-dirs]
+CXX  <=  App/App.cpp
+LINK =>  bonus_digital_wallet
+The project has been built in debug simulation mode.
+make[1]: Leaving directory '/home/amena/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet'
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ ./bonus_digital_wallet
+Balance: 1000.00
+Balance: 1300.00
+DEPOSIT: 500.00
+PAY: 200.00
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ make SGX_MODE=SIM
+make[1]: Entering directory '/home/amena/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet'
+cc1plus: warning: Include: No such file or directory [-Wmissing-include-dirs]
+CXX  <=  App/App.cpp
+LINK =>  bonus_digital_wallet
+The project has been built in debug simulation mode.
+make[1]: Leaving directory '/home/amena/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet'
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ ./bonus_digital_wallet
+Balance: 1000.00
+Balance: 1300.00
+Transaction history: 
+DEPOSIT: 500.00
+PAY: 200.00
+amena@amena-HP-Pavilion-x360-Convertible-14m-dw0xxx:~/Desktop/sgx_lab/lab_sgx/Bonus_DigitalWallet$ 
+
