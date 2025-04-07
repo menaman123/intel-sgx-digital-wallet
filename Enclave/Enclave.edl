@@ -1,0 +1,19 @@
+
+enclave {
+    trusted {
+        public void ecall_deposit(float amount);
+        public void ecall_pay(float amount);
+        public void ecall_viewBalance();
+        public void ecall_checkTransaction();
+    };
+    
+    untrusted {
+        void ocall_viewBalance( float balance);
+        void ocall_checkTransaction([in, count=count] const struct transaction_entry* entries, size_t count);
+    };
+
+    struct transaction_entry {
+        char description[32];
+        float amount;
+    };
+};
